@@ -5,10 +5,17 @@ import androidx.appcompat.app.AlertDialog.Builder;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
+import android.view.View.OnTouchListener;
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -28,6 +35,23 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         editText = (EditText) findViewById(R.id.edit_text);
         btn5.setOnClickListener(this);
 
+        //键盘
+        editText.setOnFocusChangeListener(new OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    //打开键盘
+
+                }else{
+                    //关闭键盘
+                    InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(editText.getWindowToken(),0);
+                }
+
+            }
+        });
+
+        //更改图片
         Button btn7 = (Button) findViewById(R.id.change_image);
         imageView = (ImageView) findViewById(R.id.image_view);
         btn7.setOnClickListener(new OnClickListener() {
@@ -58,14 +82,19 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
 
     }
 
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button5:
+                //失去焦点？
+                //editText.clearFocus();
                 //弹出alertdialog
+
                 AlertDialog.Builder dialog = new Builder(MainActivity3.this);
                 dialog.setTitle("this is a dialog");
                 dialog.setMessage("是否确认？");
+
                 //不能back
                 dialog.setCancelable(false);
                 //确认的点击事件
@@ -75,6 +104,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                         //获取输入的值
                         String inputText = editText.getText().toString();
                         Toast.makeText(MainActivity3.this, "输入的值为：" + inputText, Toast.LENGTH_SHORT).show();
+                        //editText.setInputType(InputType.TYPE_NULL); // 关闭软键盘？
 
                     }
                 });

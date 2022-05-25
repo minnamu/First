@@ -13,12 +13,20 @@
     <!--效果与line：9相同-->
     <com.example.first.TitleLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
 
 
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="333dp" />
+    <Button
+        android:id="@+id/go_to_recyclerview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="go to RecyclerView"
+        android:textAllCaps="false"/>
 
 </LinearLayout>

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.First"
         tools:targetApi="31">
         <activity
+            android:name=".UITest"
+            android:exported="false" />
+        <activity
             android:name=".UIActivity4"
             android:exported="false" />
         <activity
@@ -31,6 +34,7 @@
             android:name=".MainActivity2"
             android:exported="true"
             android:label="第2个activity">
+
             <!--
 当前Activity是否可以被另一个Application的组件启动：true允许被启动；false不允许被启动。
 如果它写在service中并且为false则表示则该服务不能够跨进程使用。
