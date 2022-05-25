@@ -27,6 +27,8 @@ public class FregmentTest extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fregment_test);
+        //先把原来的right布局放进来
+        replace(new RightFragment());
 
         //点击左侧碎片中的button，将右边替换成anotherright
         Button btn = (Button) findViewById(R.id.left_button);
@@ -36,7 +38,6 @@ public class FregmentTest extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 replace((new AnotherRightFragment()));
-               
 
                 //Toast.makeText(FregmentTest.this, "点击", Toast.LENGTH_SHORT).show();
             }
