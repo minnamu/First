@@ -79,7 +79,9 @@ public class MainActivity extends AppCompatActivity {
 
                 startActivityForResult(intent, 1);
 
-                //隐式intent
+                /**
+                 * 隐式intent
+                 */
                 //Intent intent=new Intent("com.example.activitytest.ACTION_START");//表明想要启动能够响应""的activity
                 // intent.addCategory("android.intent.category.MY_CATEGORY");//每个Intent中只能指定一个action，但却能指定多个category。
                 // startActivity(intent);
@@ -123,6 +125,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, UIActivity4.class);
+                startActivity(intent);
+            }
+        });
+        Button btnFregment = (Button) findViewById(R.id.go_to_fregment);
+        btnFregment.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FregmentTest.class);
                 startActivity(intent);
             }
         });

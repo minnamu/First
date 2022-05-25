@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.text.InputType;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,6 +27,47 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
     private ImageView imageView;
     private int pic = 1;
 
+    /**
+     * 1。判定是否要关闭软键盘
+     */
+    private boolean isHideSoftKeyboard(View view, MotionEvent event) {
+        if (view instanceof EditText) {
+            int[] l = {0, 0};
+            view.getLocationInWindow(l);
+            int left = l[0], top = l[1], bottom = top + view.getHeight(), right = left + view.getWidth();
+            return !(event.getX() > left) || !(event.getX() < right) || !(event.getY() > top) || !(event.getY() < bottom);
+        }
+        return false;
+    }
+
+    /**
+     * 2。关闭软键盘
+     */
+    private void HideSoftKeyboard(IBinder binder) {
+        if (binder != null) {
+            InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            manager.hideSoftInputFromWindow(binder, InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
+    /**
+     * 3。触摸事件分发方法，则可以触碰其他地方关闭键盘
+     * 需要增：
+     * vandroid:focusable="true"
+     * android:focusableInTouchMode="true"
+     */
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            View view = getCurrentFocus();
+            if (isHideSoftKeyboard(view, event)) {
+                HideSoftKeyboard(view.getWindowToken());
+                view.clearFocus();
+            }
+        }
+        return super.dispatchTouchEvent(event);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,21 +77,24 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         editText = (EditText) findViewById(R.id.edit_text);
         btn5.setOnClickListener(this);
 
+/*
         //键盘
         editText.setOnFocusChangeListener(new OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
+                if (hasFocus) {
                     //打开键盘
 
-                }else{
+                } else {
                     //关闭键盘
-                    InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(editText.getWindowToken(),0);
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
                 }
 
             }
         });
+
+ */
 
         //更改图片
         Button btn7 = (Button) findViewById(R.id.change_image);
@@ -82,15 +127,12 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
 
     }
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button5:
-                //失去焦点？
-                //editText.clearFocus();
-                //弹出alertdialog
 
+                //弹出alertdialog
                 AlertDialog.Builder dialog = new Builder(MainActivity3.this);
                 dialog.setTitle("this is a dialog");
                 dialog.setMessage("是否确认？");

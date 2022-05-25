@@ -6,6 +6,7 @@ package com.example.first;
         2. 在控件类中写自己想要的。
         3. 在主布局xml中引入控件类。
  */
+
 import java.text.AttributedCharacterIterator.Attribute;
 
 import android.app.Activity;
@@ -19,34 +20,33 @@ import android.widget.Toast;
 
 //自定义控件
 public class TitleLayout extends LinearLayout {
-    public TitleLayout(Context context, AttributeSet attrs){
-        super(context,attrs);
+    public TitleLayout(Context context, AttributeSet attrs) {
+        super(context, attrs);
 
         //from()构建出一个layoutinflater对象
         //inflate()动态加载一个布局文件
         //参数1：布局文件   参数2：给加载好的布局添加一个父布局(这里为TitleLayout)
-        LayoutInflater.from(context).inflate(R.layout.title,this);
+        LayoutInflater.from(context).inflate(R.layout.title, this);
 
 
-        Button btnBack=(Button) findViewById(R.id.title_back);
-        Button btnEdit=(Button) findViewById(R.id.title_edit);
+        Button btnBack = (Button) findViewById(R.id.title_back);
+        Button btnEdit = (Button) findViewById(R.id.title_edit);
 
         btnBack.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 //销毁当前活动
-                ((Activity)getContext()).finish();
+                ((Activity) getContext()).finish();
             }
         });
 
         btnEdit.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"你点击了edit",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "你点击了edit", Toast.LENGTH_SHORT).show();
 
             }
         });
-
 
 
     }

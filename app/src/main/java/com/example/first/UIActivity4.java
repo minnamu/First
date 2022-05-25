@@ -57,8 +57,8 @@ public class UIActivity4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uiactivity4);
-        TextView title=findViewById(R.id.title_text);
-        title.setText("title");
+        TextView title = findViewById(R.id.title_text);
+        title.setText("使用ListView");
         //隐藏自带标题栏
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -80,13 +80,12 @@ public class UIActivity4 extends AppCompatActivity {
             }
         });
 
-        Button btn=(Button) findViewById(R.id.go_to_recyclerview);
+        Button btn = (Button) findViewById(R.id.go_to_recyclerview);
         btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(UIActivity4.this,UITest.class);
+                Intent intent = new Intent(UIActivity4.this, UITest.class);
                 startActivity(intent);
-
             }
         });
 

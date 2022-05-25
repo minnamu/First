@@ -39,18 +39,23 @@ public class MainActivity2 extends AppCompatActivity {
         textView.setText("获取到activity1传来的：" + data);
         Log.d("send to activity2", data);
 
-        //返回数据给上一个活动
+        /**
+         * 返回数据给上一个活动
+         */
         Button btn3 = (Button) findViewById(R.id.button3);
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.putExtra("data_return", "hello no1");//key,value
-                setResult(RESULT_OK, intent);//返回数据给上一个活动,
-                //第一个参数用于向上一个活动返回处理结果。
-                //第二个参数把带有数据的Intent传递回去。
-                //使用startActivityForResult()方法启动活动的，在活动被销毁之后会回调上一个活动的onActivityResult()方法
-                // 因此需要在上一个方法中重写onActivityResult()方法。
+                setResult(RESULT_OK, intent);//返回数据给上一个活动
+                /**
+                 * setResult()
+                 * 第一个参数用于向上一个活动返回处理结果。
+                 * 第二个参数把带有数据的Intent传递回去。
+                 * 使用startActivityForResult()方法启动活动的，在活动被销毁之后会回调上一个活动的onActivityResult()方法
+                 * 因此需要在上一个方法中重写onActivityResult()方法。
+                 */
                 finish();
             }
         });

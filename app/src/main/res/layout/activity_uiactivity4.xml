@@ -20,7 +20,7 @@
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="333dp" />
+        android:layout_height="582dp" />
     <Button
         android:id="@+id/go_to_recyclerview"
         android:layout_width="wrap_content"

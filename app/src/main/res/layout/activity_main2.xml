@@ -26,7 +26,8 @@
         android:hint="请在此输入"
         android:maxLines="2"
         android:focusable="true"
-        android:focusableInTouchMode="true"/>
+        android:focusableInTouchMode="true"
+        />
 
     <Button
         android:id="@+id/button5"

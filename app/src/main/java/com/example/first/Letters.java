@@ -5,10 +5,10 @@ public class Letters {
     private int imageId;
     private String count;
 
-    public Letters(String name, int imageId,String count) {
+    public Letters(String name, int imageId, String count) {
         this.name = name;
         this.imageId = imageId;
-        this.count=count;
+        this.count = count;
 
     }
 
