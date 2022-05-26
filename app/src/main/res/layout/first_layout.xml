@@ -27,9 +27,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hello"
         android:layout_gravity="center_horizontal"
-        />
+        android:text="hello" />
 
 
     <Button
@@ -37,6 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="go to activity2"
+        android:textAllCaps="false"
 
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,6 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="baidu"
+        android:textAllCaps="false"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,6 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="go to activity3"
+        android:textAllCaps="false"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,6 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="go to UIactivity"
+        android:textAllCaps="false"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,9 +92,15 @@
         android:id="@+id/go_to_fregment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="go to gregmentTest"
-        android:textAllCaps="false"
-        />
+        android:text="go to fragmentTest"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/go_to_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="新闻"
+        android:textAllCaps="false" />
 
 
 </LinearLayout>

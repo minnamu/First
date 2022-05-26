@@ -1,4 +1,4 @@
-package com.example.first;
+package com.example.first.testRecyclerView;
 //练习RecyclerView
 
 import java.util.ArrayList;
@@ -10,6 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.LinearLayout;
+
+import com.example.first.LetterRecyclerAdapter;
+import com.example.first.Letters;
+import com.example.first.R;
 
 public class UITest extends AppCompatActivity {
     private List<Letters> lettersList = new ArrayList<>();
@@ -39,6 +43,7 @@ public class UITest extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         //设置水平
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL); //不设置默认垂直
+
         recyclerView.setLayoutManager(linearLayoutManager);
         LetterRecyclerAdapter adapter = new LetterRecyclerAdapter(lettersList);
         recyclerView.setAdapter(adapter);

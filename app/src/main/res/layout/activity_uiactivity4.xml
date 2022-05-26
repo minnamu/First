@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".UIActivity4">
+    tools:context=".testListView.UIActivity4">
     <!--引入布局
     <include layout="@layout/title" />
     -->

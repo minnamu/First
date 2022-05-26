@@ -1,21 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version="1.0" encoding="utf-8"?><!--当屏幕宽度大于600dp时加载当前布局
+最小宽度限定符（sw，smallest-width qualifier ），以这个值为区分
+-->
+<!--large是一个限定符，large会提供给大屏幕设备
+限定符：(屏幕)small normal large xlarge
+（分辨率）ldpi m/h/xh/xxh+dpi
+（方向）横屏：land 竖屏：port
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FragmentTest"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
     <!-- 需要用name指定碎片名-->
     <fragment
         android:id="@+id/left_fragment"
         android:name="com.example.first.LeftFragment"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        />
+        android:layout_weight="1" />
     <!--
-    单页的界面，左侧碎片占满屏幕
+    双页的界面
     -->
     <!--
         <fragment

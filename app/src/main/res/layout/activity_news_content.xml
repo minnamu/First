@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".testRecyclerView.UITest">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    tools:context=".NewsContentActivity">
+<!--单页模式-->
+    <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/newsf"
+        android:name="com.example.first.NewsContentFragment"
         />
 
 </LinearLayout>

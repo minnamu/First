@@ -18,17 +18,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class FregmentTest extends AppCompatActivity {
+public class FragmentTest extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fregment_test);
+        setContentView(R.layout.activity_fragment_test);
         //先把原来的right布局放进来
-        replace(new RightFragment());
+        replace(new RightFragment());//入栈
+
+        /**
+         * 获取碎片实例，获取碎片的方法
+         * getSupportFragmentManager().findFragmentById()
+         */
+        RightFragment rightFragment = (RightFragment) getSupportFragmentManager().findFragmentById(R.id.another_right_fragment);
+        /**
+         * 碎片调用活动中的方法
+         * 碎片调用getActivity()获取当前活动,见LeftFragment.java
+         */
+
 
         //点击左侧碎片中的button，将右边替换成anotherright
         Button btn = (Button) findViewById(R.id.left_button);
@@ -46,7 +55,7 @@ public class FregmentTest extends AppCompatActivity {
 
 
     /**
-     * 动态加载碎片new AnotherRightFragment()
+     * 动态加载碎片，点击button之后，调用replace((new AnotherRightFragment()))
      *
      * @param fragment 步骤：
      *                 创建right碎片实例
@@ -60,8 +69,11 @@ public class FregmentTest extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         fragmentTransaction.replace(R.id.another_right_fragment, fragment);
+        /**
+         * 将事务添加到返回栈中
+         * FragmentTransaction的addToBackStack(null)方法：将一个事务传到返回栈中，接收一个名字，一般传入null
+         */
+        fragmentTransaction.addToBackStack(null);//使得：back时，栈顶出栈，返回到原来的activity界面
         fragmentTransaction.commit();
-
-
     }
 }

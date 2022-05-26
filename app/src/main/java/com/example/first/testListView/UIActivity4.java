@@ -1,4 +1,4 @@
-package com.example.first;
+package com.example.first.testListView;
 //自定义标题栏
 //使用ListView（ArrayAdapter）
 
@@ -14,13 +14,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.example.first.LetterAdapter;
+import com.example.first.Letters;
+import com.example.first.R;
+import com.example.first.testRecyclerView.UITest;
 
 public class UIActivity4 extends AppCompatActivity {
     private String[] data = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"};

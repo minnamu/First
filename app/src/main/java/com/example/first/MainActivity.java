@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.first.testListView.UIActivity4;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -132,7 +133,16 @@ public class MainActivity extends AppCompatActivity {
         btnFregment.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FregmentTest.class);
+                Intent intent = new Intent(MainActivity.this, FragmentTest.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btnFregmentNews = (Button) findViewById(R.id.go_to_news);
+        btnFregmentNews.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NewsContentActivity.class);
                 startActivity(intent);
             }
         });

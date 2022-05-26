@@ -13,16 +13,18 @@
         android:theme="@style/Theme.First"
         tools:targetApi="31">
         <activity
-            android:name=".FregmentTest"
-            android:exported="false"
-            android:label="FregmentTest"
-            />
+            android:name=".NewsContentActivity"
+            android:exported="false" />
         <activity
-            android:name=".UITest"
+            android:name=".FragmentTest"
+            android:exported="false"
+            android:label="FregmentTest" />
+        <activity
+            android:name=".testRecyclerView.UITest"
             android:exported="false"
             android:label="使用RecyclerView" />
         <activity
-            android:name=".UIActivity4"
+            android:name=".testListView.UIActivity4"
             android:exported="false" />
         <activity
             android:name=".MainActivity3"
