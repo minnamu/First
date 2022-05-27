@@ -1,4 +1,4 @@
-package com.example.first;
+package com.example.first.fragments;
 /**
  * 碎片状态：运行 暂停 停止 销毁
  * 1.  运行状态：当一个碎片是可见的，并且它所关联的活动正处于运行状态时，该碎片也处于运行状态。
@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.first.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

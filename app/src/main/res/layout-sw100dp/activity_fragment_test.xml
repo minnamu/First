@@ -13,7 +13,7 @@
     <!-- 需要用name指定碎片名-->
     <fragment
         android:id="@+id/left_fragment"
-        android:name="com.example.first.LeftFragment"
+        android:name="com.example.first.fragments.LeftFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1" />

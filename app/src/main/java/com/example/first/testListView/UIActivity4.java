@@ -19,8 +19,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.first.LetterAdapter;
-import com.example.first.Letters;
+import com.example.first.letters.Letters;
 import com.example.first.R;
 import com.example.first.testRecyclerView.UITest;
 

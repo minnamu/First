@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.first.news.NewsContentFragment;
+
 public class NewsContentActivity extends AppCompatActivity {
 
     public static void actionStart(Context context,String nT,String nC){

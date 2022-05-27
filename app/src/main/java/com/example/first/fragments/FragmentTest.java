@@ -1,4 +1,4 @@
-package com.example.first;
+package com.example.first.fragments;
     /*
     动态添加碎片
     步骤：
@@ -18,6 +18,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
+import com.example.first.R;
 
 public class FragmentTest extends AppCompatActivity {
 

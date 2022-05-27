@@ -5,12 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentTest"
+    tools:context=".fragments.FragmentTest"
     android:orientation="horizontal">
     <!-- 需要用name指定碎片名-->
     <fragment
         android:id="@+id/left_fragment"
-        android:name="com.example.first.LeftFragment"
+        android:name="com.example.first.fragments.LeftFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

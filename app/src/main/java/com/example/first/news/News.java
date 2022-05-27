@@ -1,4 +1,4 @@
-package com.example.first;
+package com.example.first.news;
 
 //新闻类
 public class News {

@@ -8,7 +8,7 @@
     <!--双页模式,两个碎片,一个title，一个content-->
     <fragment
         android:id="@+id/newsf"
-        android:name="com.example.first.NewsTitleFragment"
+        android:name="com.example.first.news.NewsTitleFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
     <!--通过这个标签来判断是否是双页模式-->
@@ -20,7 +20,7 @@
 
         <fragment
             android:id="@+id/news_content_fragment"
-            android:name="com.example.first.NewsContentFragment"
+            android:name="com.example.first.news.NewsContentFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

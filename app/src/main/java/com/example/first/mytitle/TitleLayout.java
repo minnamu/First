@@ -1,4 +1,4 @@
-package com.example.first;
+package com.example.first.mytitle;
 /*
     创建自定义控件
     步骤：
@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.example.first.R;
 
 //自定义控件
 public class TitleLayout extends LinearLayout {

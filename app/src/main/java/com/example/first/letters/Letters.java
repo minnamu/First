@@ -1,4 +1,4 @@
-package com.example.first;
+package com.example.first.letters;
 
 public class Letters {
     private String name;

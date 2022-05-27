@@ -9,10 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.LinearLayout;
 
-import com.example.first.LetterRecyclerAdapter;
-import com.example.first.Letters;
+import com.example.first.letters.Letters;
 import com.example.first.R;
 
 public class UITest extends AppCompatActivity {

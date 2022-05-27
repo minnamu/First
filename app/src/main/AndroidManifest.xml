@@ -16,7 +16,7 @@
             android:name=".NewsContentActivity"
             android:exported="false" />
         <activity
-            android:name=".FragmentTest"
+            android:name=".fragments.FragmentTest"
             android:exported="false"
             android:label="FregmentTest" />
         <activity

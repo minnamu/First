@@ -1,4 +1,4 @@
-package com.example.first;
+package com.example.first.testRecyclerView;
 
 import java.util.List;
 
@@ -10,7 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.first.LetterAdapter.ViewHolder;
+import com.example.first.R;
+import com.example.first.letters.Letters;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;

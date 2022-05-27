@@ -1,4 +1,4 @@
-package com.example.first;
+package com.example.first.news;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,16 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.first.NewsContentActivity;
+import com.example.first.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerView.Recycler;
-import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 public class NewsTitleFragment extends Fragment {
     private boolean isTwoPane;

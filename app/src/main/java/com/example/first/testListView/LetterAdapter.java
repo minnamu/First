@@ -1,4 +1,4 @@
-package com.example.first;
+package com.example.first.testListView;
 
 import java.util.List;
 
@@ -10,9 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.first.R;
+import com.example.first.letters.Letters;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 /*
         定制ListView界面

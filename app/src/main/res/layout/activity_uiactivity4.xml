@@ -11,7 +11,7 @@
     -->
     <!--引入自定义控件,需要写完整包名-->
     <!--效果与line：9相同-->
-    <com.example.first.TitleLayout
+    <com.example.first.mytitle.TitleLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
