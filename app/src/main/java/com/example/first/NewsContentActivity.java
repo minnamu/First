@@ -11,7 +11,7 @@ import com.example.first.news.NewsContentFragment;
 public class NewsContentActivity extends AppCompatActivity {
 
     public static void actionStart(Context context,String nT,String nC){
-        Intent intent=new Intent(context,NewsContentActivity.class);
+        Intent intent=new Intent(context,News2.class);
         intent.putExtra("news_titile_key",nT);
         intent.putExtra("news_content_key",nC);
         context.startActivity(intent);
@@ -20,7 +20,7 @@ public class NewsContentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_content);
-        String newsT = getIntent().getStringExtra(("news_titile_key"));
+        String newsT = getIntent().getStringExtra(("news_title_key"));
         String newsC = getIntent().getStringExtra("news_content_key");
         //获取这个fragment
         NewsContentFragment newsContentFragment = (NewsContentFragment) getSupportFragmentManager().findFragmentById(R.id.newsf);

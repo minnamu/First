@@ -102,7 +102,7 @@ public class NewsTitleFragment extends Fragment {
         //@Override
         public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             //
-            View view = inflater.inflate(R.layout.news_titile_frag, container, false);
+            View view = inflater.inflate(R.layout.news_title_frag, container, false);
 
 
             RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.news_title_recycler_view);

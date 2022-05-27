@@ -7,10 +7,9 @@
     tools:context=".NewsContentActivity">
 <!--单页模式-->
     <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/newsf"
-        android:name="com.example.first.news.NewsContentFragment"
-        />
+        android:name="com.example.first.news.NewsTitleFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

@@ -21,9 +21,9 @@ import android.widget.Toast;
 
 import com.example.first.letters.Letters;
 import com.example.first.R;
-import com.example.first.testRecyclerView.UITest;
+import com.example.first.testRecyclerView.ActivityUITest;
 
-public class UIActivity4 extends AppCompatActivity {
+public class ActivityListView extends AppCompatActivity {
     private String[] data = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"};
 /*
     @Override
@@ -67,7 +67,7 @@ public class UIActivity4 extends AppCompatActivity {
         }
         initLetters();
         //参数：当前上下文，ListView子项布局的id，数据
-        LetterAdapter adapter = new LetterAdapter(UIActivity4.this, R.layout.letters_item, lettersList);
+        LetterAdapter adapter = new LetterAdapter(ActivityListView.this, R.layout.letters_item, lettersList);
         ListView listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter);
 
@@ -77,7 +77,7 @@ public class UIActivity4 extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //通过position判断点击的子项
                 Letters letters = lettersList.get(position);
-                Toast.makeText(UIActivity4.this, "This is the letter " + letters.getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityListView.this, "This is the letter " + letters.getName(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -85,7 +85,7 @@ public class UIActivity4 extends AppCompatActivity {
         btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UIActivity4.this, UITest.class);
+                Intent intent = new Intent(ActivityListView.this, ActivityUITest.class);
                 startActivity(intent);
             }
         });

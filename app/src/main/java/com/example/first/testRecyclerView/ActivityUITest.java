@@ -13,7 +13,7 @@ import android.os.Bundle;
 import com.example.first.letters.Letters;
 import com.example.first.R;
 
-public class UITest extends AppCompatActivity {
+public class ActivityUITest extends AppCompatActivity {
     private List<Letters> lettersList = new ArrayList<>();
 
     private void initLetters() {

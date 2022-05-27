@@ -13,6 +13,9 @@
         android:theme="@style/Theme.First"
         tools:targetApi="31">
         <activity
+            android:name=".News2"
+            android:exported="false" />
+        <activity
             android:name=".NewsContentActivity"
             android:exported="false" />
         <activity
@@ -20,11 +23,11 @@
             android:exported="false"
             android:label="FregmentTest" />
         <activity
-            android:name=".testRecyclerView.UITest"
+            android:name=".testRecyclerView.ActivityUITest"
             android:exported="false"
             android:label="使用RecyclerView" />
         <activity
-            android:name=".testListView.UIActivity4"
+            android:name=".testListView.ActivityListView"
             android:exported="false" />
         <activity
             android:name=".MainActivity3"
@@ -44,6 +47,7 @@
             android:label="第2个activity">
 
             <!--
+exported
 当前Activity是否可以被另一个Application的组件启动：true允许被启动；false不允许被启动。
 如果它写在service中并且为false则表示则该服务不能够跨进程使用。
             -->
