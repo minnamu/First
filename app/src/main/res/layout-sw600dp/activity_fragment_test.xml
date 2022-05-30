@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?><!--当屏幕宽度大于600dp时加载当前布局
+最小宽度限定符（sw，smallest-width qualifier ），以这个值为区分
+-->
+<!--large是一个限定符，large会提供给大屏幕设备
+限定符：(屏幕)small normal large xlarge
+（分辨率）ldpi m/h/xh/xxh+dpi
+（方向）横屏：land 竖屏：port
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- 需要用name指定碎片名-->
+    <fragment
+        android:id="@+id/left_fragment"
+        android:name="com.example.first.fragments.LeftFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+    <!--
+    双页的界面
+    -->
+    <!--
+        <fragment
+            android:id="@+id/right_fragment"
+            android:name="com.example.first.RightFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+            -->
+
+
+    <FrameLayout
+        android:id="@+id/another_right_fragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3" />
+
+
+</LinearLayout>

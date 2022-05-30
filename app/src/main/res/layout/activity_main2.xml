@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity3">
+
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:text="this is a text view"
+        android:textColor="#00ff00"
+
+        android:textSize="24sp"></TextView>
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请在此输入"
+        android:maxLines="2"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="输入完成"
+        android:textAllCaps="false" /><!--禁用自动text变大写-->
+    <Button
+        android:id="@+id/change_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="更改图片"
+        android:textAllCaps="false" /><!--禁用自动text变大写-->
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="430dp"
+        android:src="@drawable/cat1" />
+
+    <Button
+        android:id="@+id/btn_pro_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="弹出progressDialog"
+        android:textAllCaps="false" />
+
+
+</LinearLayout>
