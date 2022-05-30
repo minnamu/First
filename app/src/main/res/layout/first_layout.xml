@@ -102,5 +102,26 @@
         android:text="新闻"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/go_to_noti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="创建通知"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/go_to_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="camera"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/go_to_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="video"
+        android:textAllCaps="false" />
+
 
 </LinearLayout>

@@ -125,14 +125,16 @@ public class NewsTitleFragment extends Fragment {
             }
             return mNewsList;
         }
+
         //随机
-        private String getRandomLength(String context){
-            Random random=new Random();
-            int length =random.nextInt(20)+1;
-            StringBuilder stringBuilder=new StringBuilder();
+        private String getRandomLength(String context) {
+            Random random = new Random();
+            int length = random.nextInt(20) + 1;
+            StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < length; i++) {
                 stringBuilder.append(context);
-            }return stringBuilder.toString();
+            }
+            return stringBuilder.toString();
         }
 
 

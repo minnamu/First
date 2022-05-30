@@ -10,12 +10,13 @@ import com.example.first.news.NewsContentFragment;
 
 public class NewsContentActivity extends AppCompatActivity {
 
-    public static void actionStart(Context context,String nT,String nC){
-        Intent intent=new Intent(context,News2.class);
-        intent.putExtra("news_titile_key",nT);
-        intent.putExtra("news_content_key",nC);
+    public static void actionStart(Context context, String nT, String nC) {
+        Intent intent = new Intent(context, NewsContentActivity.class);
+        intent.putExtra("news_titile_key", nT);
+        intent.putExtra("news_content_key", nC);
         context.startActivity(intent);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

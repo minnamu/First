@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FragmentTest"
+    tools:context=".fragments.FragmentTestActivity"
     android:orientation="horizontal">
     <!-- 需要用name指定碎片名-->
     <fragment

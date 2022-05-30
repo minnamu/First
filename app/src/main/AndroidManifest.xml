@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- 震动权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +17,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.First"
         tools:targetApi="31">
+        <!--p296 https://blog.csdn.net/black_bird_cn/article/details/103083000-->
+        <!-- android:name="androidx.core.content.FileProvider"
+        替换 ：https://blog.csdn.net/qq_39827677/article/details/104677336
+        -->
+       <!-- <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.cameraalbumtest.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>-->
+
+
+        <activity
+            android:name=".ActivityVideo"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitygCamera"
+            android:exported="false" />
         <activity
             android:name=".News2"
             android:exported="false" />
@@ -19,7 +45,7 @@
             android:name=".NewsContentActivity"
             android:exported="false" />
         <activity
-            android:name=".fragments.FragmentTest"
+            android:name=".fragments.FragmentTestActivity"
             android:exported="false"
             android:label="FregmentTest" />
         <activity
@@ -70,4 +96,6 @@ exported
         </activity>
     </application>
 
+
 </manifest>
+

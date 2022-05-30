@@ -1,7 +1,14 @@
 package com.example.first;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -17,12 +24,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.first.fragments.FragmentTest;
+import androidx.core.app.NotificationCompat;
+
+import com.example.first.fragments.FragmentTestActivity;
 
 import com.example.first.testListView.ActivityListView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private NotificationManager manager;
+
     //activity2销毁后，会回调这个函数
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -50,6 +61,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
+/**
+ * 8.0以上版本
+ */
+        manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channelId = "First";
+            String channelName = "通知消息";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
+            manager.createNotificationChannel(channel);
+        }
 
         Button btn1 = (Button) findViewById(R.id.button1);
         TextView tv1 = (TextView) findViewById(R.id.textView);
@@ -135,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         btnFragment.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FragmentTest.class);
+                Intent intent = new Intent(MainActivity.this, FragmentTestActivity.class);
                 startActivity(intent);
             }
         });
@@ -149,8 +172,122 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //点击创建通知
+        Button btnNoti = (Button) findViewById(R.id.go_to_noti);
+        btnNoti.setOnClickListener(this);
+/*
+
+        btnNoti.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+*//*
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                //  PendingIntent pi = PendingIntent.getActivity(MainActivity.this, 0, intent, 0);
+                //https://blog.csdn.net/yubo_725/article/details/124413000
+                PendingIntent pendingIntent;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+                    pendingIntent = PendingIntent.getActivity(MainActivity.this, 123, intent, PendingIntent.FLAG_IMMUTABLE);
+                } else {
+                    pendingIntent = PendingIntent.getActivity(MainActivity.this, 123, intent, PendingIntent.FLAG_ONE_SHOT);
+                }
+
+*//*
+         *//*
+                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                Notification notification = new NotificationCompat.Builder(MainActivity.this)
+                        .setContentTitle("通知标题")
+                        .setContentText("通知内容")
+                        .setWhen(System.currentTimeMillis())
+                        .setSmallIcon(R.mipmap.noti)
+                        .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.noti))
+                        //.setContentIntent(pendingIntent)
+                        //通知自动取消
+                        //.setAutoCancel(true)
+                        //震动，毫秒，震动静止再震动，需要注册权限
+                        //.setVibrate(new long[]{0, 1000, 1000, 1000})
+                        //重要通知，弹出横幅
+                        .setPriority(NotificationCompat.PRIORITY_MAX)
+                        .build();
+                notificationManager.notify(1, notification);
+
+ *//*
+         *//**
+         * 通知跳转
+         * https://developer.android.com/training/notify-user/build-notification
+         *//*
+         *//* Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this, 0, intent, 0);*//*
+         *//**
+         * Android8.0以上的的通知要设置渠道，否则就无法显示
+         * https://blog.csdn.net/weixin_46760781/article/details/105932789
+         *//*
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                PendingIntent activity = PendingIntent.getActivity(MainActivity.this, 0, intent, 0);
+                android.app.Notification notification = new NotificationCompat.Builder(this, "First")
+                        .setContentTitle("通知标题！")
+                        .setContentText("通知内容！")
+                        .setWhen(System.currentTimeMillis())
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentIntent(activity)
+                        .setAutoCancel(true)
+                        .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+                        .build();
+                manager.notify(1, notification);
+                Log.d("my notification", "onClick: 点击了创建通知");
+                //跳转到activity2
+                //
+
+                //startActivity(intent);
+            }
+        });*/
+
+        Button btnCamera = (Button) findViewById(R.id.go_to_camera);
+        btnCamera.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ActivitygCamera.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btnVideo = (Button) findViewById(R.id.go_to_video);
+        btnVideo.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ActivitygCamera.class);
+                startActivity(intent);
+            }
+        });
+
 
     }//oncreate
+
+    //参考：https://developer.android.com/training/notify-user/build-notification
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.go_to_noti:
+                Intent intent = new Intent(this, MainActivity2.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                PendingIntent activity = PendingIntent.getActivity(this, 0, intent, 0);
+                android.app.Notification notification = new NotificationCompat.Builder(this, "First")
+                        .setContentTitle("这是一个通知标题")
+                        .setContentText("这是通知的内容，点击会跳转到activity2")
+                        .setWhen(System.currentTimeMillis())
+                        .setSmallIcon(R.mipmap.noti)
+                        .setContentIntent(activity)
+                        .setAutoCancel(true)
+                        .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.noti))
+                        .setPriority(NotificationCompat.PRIORITY_MAX)
+                        .build();
+                manager.notify(1, notification);
+                break;
+            default:
+                break;
+        }
+    }
 
 
     @Override

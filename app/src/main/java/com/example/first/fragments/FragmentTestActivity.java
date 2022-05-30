@@ -21,7 +21,7 @@ import android.widget.Button;
 
 import com.example.first.R;
 
-public class FragmentTest extends AppCompatActivity {
+public class FragmentTestActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
