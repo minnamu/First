@@ -28,11 +28,11 @@ public class NewsTitleFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         //根据是否能找到这个view来判断是否是双页模式
-        if (getActivity().findViewById(R.id.news_content_layout) != null) {
-            isTwoPane = true;
-        } else {
-            isTwoPane = false;
-        }
+//        if (getActivity().findViewById(R.id.news_content_layout) != null) {
+//            isTwoPane = true;
+//        } else {
+//            isTwoPane = false;
+//        }
     }
 
     /**
@@ -65,15 +65,15 @@ public class NewsTitleFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     News news = mNewsList.get(holder.getAdapterPosition());
-                    if (isTwoPane) {
-                        //双页模式
-                        NewsContentFragment newsContentFragment = (NewsContentFragment) getFragmentManager().findFragmentById(R.id.news_content_fragment);
-                        newsContentFragment.refresh(news.getTitle(), news.getContent());
-                    } else {
-                        //单页模式，直接启动NewsContentActivity
-                        NewsContentActivity.actionStart(getActivity(), news.getTitle(), news.getContent());
-
-                    }
+//                    if (isTwoPane) {
+//                        //双页模式
+//                        NewsContentFragment newsContentFragment = (NewsContentFragment) getFragmentManager().findFragmentById(R.id.news_content_fragment);
+//                        newsContentFragment.refresh(news.getTitle(), news.getContent());
+//                    } else {
+//                        //单页模式，直接启动NewsContentActivity
+//                        NewsContentActivity.actionStart(getActivity(), news.getTitle(), news.getContent());
+//
+//                    }
                 }
             });
             return holder;

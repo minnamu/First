@@ -1,6 +1,7 @@
 package com.example.first;
 
-import android.app.Notification;
+import java.lang.reflect.Method;
+
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -21,18 +22,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.android.material.navigation.NavigationView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
-
-import com.example.first.fragments.FragmentTestActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.first.testListView.ActivityListView;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private NotificationManager manager;
+    private DrawerLayout mdl;
+
 
     //activity2销毁后，会回调这个函数
     @Override
@@ -61,6 +67,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
+        //ui
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
 /**
  * 8.0以上版本
  */
@@ -167,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnFragmentNews.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NewsContentActivity.class);
+                Intent intent = new Intent(MainActivity.this, News2.class);
                 startActivity(intent);
             }
         });
@@ -260,6 +270,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
             }
         });
+        Button btnMd = (Button) findViewById(R.id.go_to_md);
+        btnMd.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ActivityMaterialDesign.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btnOpen = (Button) findViewById(R.id.openleftmenu);
+        mdl = (DrawerLayout) findViewById(R.id.left_menu);
+        btnOpen.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mdl.openDrawer(GravityCompat.START);//END 右边菜单
+            }
+        });
 
 
     }//oncreate
@@ -269,12 +296,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.go_to_noti:
-                Intent intent = new Intent(this, MainActivity2.class);
+                Intent intent = new Intent(this, MainActivity3.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 PendingIntent activity = PendingIntent.getActivity(this, 0, intent, 0);
                 android.app.Notification notification = new NotificationCompat.Builder(this, "First")
                         .setContentTitle("这是一个通知标题")
-                        .setContentText("这是通知的内容，点击会跳转到activity2")
+                        .setContentText("这是通知的内容，点击会跳转到有猫猫的界面")
                         .setWhen(System.currentTimeMillis())
                         .setSmallIcon(R.mipmap.noti)
                         .setContentIntent(activity)
@@ -289,10 +316,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
+    /**
+     * 重写才能显示出menu的图标
+     */
+/*    @Override
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        if (menu != null) {
+            if (menu.getClass().getSimpleName().equalsIgnoreCase("MenuBuilder")) {
+                try {
+                    Method method = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+                    method.setAccessible(true);
+                    method.invoke(menu, true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return super.onMenuOpened(featureId, menu);
+    }*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        //原来的add remove菜单
+        //getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.toolbar, menu);
         return true;
     }
 
@@ -305,11 +351,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.remove_item:
                 Toast.makeText(MainActivity.this, "点击了菜单remove", Toast.LENGTH_SHORT).show();
                 break;
+            //点击我的
+            case R.id.my:
+                mdl.openDrawer(GravityCompat.START);//END 右边菜单
+
+                break;
+            case R.id.about:
+
+                break;
             default:
 
         }
         return true;
     }
+
+    /*
+    点击左侧菜单栏
+     */
+
+ /*   NavigationView navView=(NavigationView) findViewById(R.id.nav_view);
+
+    navView.*/
+
 
 
 }

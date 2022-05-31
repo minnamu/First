@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import com.example.first.letters.Letters;
 import com.example.first.R;
-import com.example.first.testRecyclerView.ActivityUITest;
+import com.example.first.ActivityUITest;
 
 public class ActivityListView extends AppCompatActivity {
     private String[] data = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"};

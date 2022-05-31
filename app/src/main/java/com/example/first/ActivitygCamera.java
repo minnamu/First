@@ -53,7 +53,7 @@ public class ActivitygCamera extends AppCompatActivity {
         setContentView(R.layout.activity_activityg_camera);
 
         Button takePhoto = (Button) findViewById(R.id.take_photo);
-        ImageView picture = (ImageView) findViewById(R.id.pictrue);
+        picture = (ImageView) findViewById(R.id.pictrue);
 
         takePhoto.setOnClickListener(new OnClickListener() {
             @Override

@@ -5,15 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FragmentTestActivity"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:context=".FragmentTestActivity">
     <!-- 需要用name指定碎片名-->
     <fragment
         android:id="@+id/left_fragment"
         android:name="com.example.first.fragments.LeftFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
     <!--
     单页的界面，左侧碎片占满屏幕
     -->

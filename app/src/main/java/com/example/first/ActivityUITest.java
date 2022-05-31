@@ -1,10 +1,11 @@
-package com.example.first.testRecyclerView;
+package com.example.first;
 //练习RecyclerView
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +13,7 @@ import android.os.Bundle;
 
 import com.example.first.letters.Letters;
 import com.example.first.R;
+import com.example.first.testRecyclerView.LetterRecyclerAdapter;
 
 public class ActivityUITest extends AppCompatActivity {
     private List<Letters> lettersList = new ArrayList<>();
@@ -33,6 +35,9 @@ public class ActivityUITest extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uitest);
+        //ui
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
 
         initLetters();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
