@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -287,8 +288,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mdl.openDrawer(GravityCompat.START);//END 右边菜单
             }
         });
+        /**
+         * 滑动菜单的点击
+         */
+        /*NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
+        navView.setNavigationItemSelectedListener(new OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.ic1:
+                        Toast.makeText(MainActivity.this, "点击了信息", Toast.LENGTH_SHORT).show();
+                        mdl.closeDrawers();//关闭滑动菜单
+                    default:
+                        break;
 
+                }
+                return true;
+            });
 
+        }*/
     }//oncreate
 
     //参考：https://developer.android.com/training/notify-user/build-notification
@@ -372,7 +390,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
  /*   NavigationView navView=(NavigationView) findViewById(R.id.nav_view);
 
     navView.*/
-
 
 
 }
