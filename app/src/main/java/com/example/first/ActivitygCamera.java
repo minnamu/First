@@ -29,12 +29,10 @@ public class ActivitygCamera extends AppCompatActivity {
     private Uri imageUri;
 
     /**
-     * Android 相机应用会对返回 Intent（作为 extra 中的小型 Bitmap 传递给 onActivityResult()，
-     * 使用键 "data"）中的照片进行编码。下面的代码会检索此图片，并将其显示在一个 ImageView 中。
+     * Android 相机应用会对返回 Intent（作为 extra 中的小型 Bitmap 传递给 onActivityResult()，使用键 "data"）中的照片进行编码。
+     * 下面的代码会检索此图片，并将其显示在一个 ImageView 中。
      *
-     * @param requestCode
-     * @param resultCode
-     * @param data
+
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -60,32 +58,35 @@ public class ActivitygCamera extends AppCompatActivity {
             public void onClick(View v) {
                 Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                    //takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
                     startActivityForResult(takePictureIntent, TAKE_PHOTO);
                 }
-/*                //File用于存储
-                File outf = new File(getExternalCacheDir(), "output_image.jpg");
-                if (outf.exists()) {
-                    outf.delete();
-                }
-                try {
-                    outf.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                //File用于存储
+//                File outf = new File(getExternalCacheDir(), "output_image.jpg");
+//                if (outf.exists()) {
+//                    outf.delete();
+//                }
+//                try {
+//                    outf.createNewFile();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                if (Build.VERSION.SDK_INT >= 24) {
+//                    imageUri = FileProvider.getUriForFile(ActivitygCamera.this, "com.example.cameraalbumtest.fileprovider", outf);
+//
+//
+//                } else {
+//                    imageUri = Uri.fromFile(outf);
+//                }
 
-                if (Build.VERSION.SDK_INT >= 24) {
-                    imageUri = FileProvider.getUriForFile(ActivitygCamera.this, "com.example.cameraalbumtest.fileprovider", outf);
-
-
-                } else {
-                    imageUri = Uri.fromFile(outf);
-                }*/
                 //启动相机
-            /*    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                //android.media.action.IMAGE.CAPTURE
-                //MediaStore.ACTION_IMAGE_CAPTURE
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                startActivityForResult(intent, TAKE_PHOTO);*/
+//                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+//                //android.media.action.IMAGE.CAPTURE
+//                //MediaStore.ACTION_IMAGE_CAPTURE
+
+               // intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+//                startActivityForResult(intent, TAKE_PHOTO);
 //                dispatchTakePictureIntent();
             }
         });
@@ -93,28 +94,28 @@ public class ActivitygCamera extends AppCompatActivity {
 
     }
 
-    /* @Override
-        protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-            //super.onActivityResult(requestCode, resultCode, data);
-            super.onActivityResult(requestCode, resultCode, data);
-            switch (requestCode) {
-                case TAKE_PHOTO:
-                    if (resultCode == RESULT_OK) {
-                        Bitmap bitmap = null;
-                        try {
-                            bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
-                            //显示出拍摄的图片
-                            picture.setImageBitmap(bitmap);
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }*/
+//     @Override
+//        protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//            //super.onActivityResult(requestCode, resultCode, data);
+//            super.onActivityResult(requestCode, resultCode, data);
+//            switch (requestCode) {
+//                case TAKE_PHOTO:
+//                    if (resultCode == RESULT_OK) {
+//                        Bitmap bitmap = null;
+//                        try {
+//                            bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
+//                            //显示出拍摄的图片
+//                            picture.setImageBitmap(bitmap);
+//                        } catch (FileNotFoundException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                    }
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
     //另一种方法
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

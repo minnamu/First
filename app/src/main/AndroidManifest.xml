@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
     <!-- 震动权限 -->
     <uses-permission android:name="android.permission.VIBRATE" />
+<!--联网-->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -17,11 +21,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.First"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ActivityMaterialDesign"
+            android:name=".ActivityWeather"
             android:exported="false" />
-        <!-- p296 https://blog.csdn.net/black_bird_cn/article/details/103083000 -->
+        <activity
+            android:name=".ActivityMaterialDesign"
+            android:exported="false" /> <!-- p296 https://blog.csdn.net/black_bird_cn/article/details/103083000 -->
         <!--
  android:name="androidx.core.content.FileProvider"
         替换 ：https://blog.csdn.net/qq_39827677/article/details/104677336

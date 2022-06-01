@@ -288,6 +288,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mdl.openDrawer(GravityCompat.START);//END 右边菜单
             }
         });
+
+
+
+        Button btnWeather = (Button) findViewById(R.id.go_to_weather);
+
+        btnWeather.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ActivityWeather.class);
+                startActivity(intent);
+            }
+        });
+
         /**
          * 滑动菜单的点击
          */

@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
+        <!--        ?attr/colorPrimary-->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -22,27 +22,10 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
+                android:background="#ffe4e1"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
         </FrameLayout>
-
-
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-
-            android:text="更改下方文字"
-
-
-            app:layout_constraintBottom_toTopOf="@+id/textView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.533"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textView"
@@ -51,112 +34,159 @@
             android:layout_gravity="center_horizontal"
             android:text="hello" />
 
-
         <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
+            android:background="@drawable/mainbutton"
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="go to activity2"
-            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"
 
+            android:text="更改上方文字" />
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.051" />
-
-        <Button
-            android:id="@+id/button4"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="外部浏览器打开baidu"
-            android:textAllCaps="false"
+            android:layout_height="wrap_content">
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.25" />
 
-        <Button
-            android:id="@+id/button_to_activity3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="go to activity3"
-            android:textAllCaps="false"
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.477" />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/mainbutton"
+                android:text="go to activity2"
+                android:textAllCaps="false"
 
-        <Button
-            android:id="@+id/button_to_activity4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="go to UIactivity"
-            android:textAllCaps="false"
+                />
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.685" />
+            <Button
+                android:id="@+id/button4"
+                android:background="@drawable/mainbutton"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="20dp"
+                android:text="外部浏览器打开baidu"
+                android:textAllCaps="false"
 
-        <Button
-            android:id="@+id/go_to_fregment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="go to fragmentTest"
-            android:textAllCaps="false" />
+                />
 
-        <Button
-            android:id="@+id/go_to_news"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="新闻"
-            android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/go_to_noti"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="创建通知"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/button_to_activity3"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button2"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/mainbutton"
 
-        <Button
-            android:id="@+id/go_to_camera"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="camera"
-            android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/go_to_video"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="video"
-            android:textAllCaps="false" />
+                android:text="go to activity3"
+                android:textAllCaps="false"
 
-        <Button
-            android:id="@+id/go_to_md"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="菜单练习界面"
-            android:textAllCaps="false" />
+                />
 
-        <Button
-            android:id="@+id/openleftmenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="打开左侧滑动菜单"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/button_to_activity4"
+                android:layout_width="170dp"
+                android:background="@drawable/mainbutton"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button4"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="20dp"
+                android:text="go to UIactivity"
+                android:textAllCaps="false"
+
+                />
+
+            <Button
+                android:id="@+id/go_to_fregment"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mainbutton"
+                android:layout_below="@id/button_to_activity3"
+                android:layout_marginBottom="20dp"
+                android:text="go to fragmentTest"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/go_to_news"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/go_to_fregment"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/mainbutton"
+                android:text="新闻"
+                android:textAllCaps="false" />
+            <Button
+                android:id="@+id/go_to_weather"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/go_to_fregment"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/mainbutton"
+                android:text="天气"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/go_to_noti"
+                android:layout_width="170dp"
+                android:background="@drawable/mainbutton"
+
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button_to_activity4"
+                android:layout_alignParentRight="true"
+                android:text="创建通知"
+                android:textAllCaps="false" />
+
+
+            <Button
+                android:id="@+id/openleftmenu"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/go_to_news"
+                android:background="@drawable/mainbutton"
+                android:layout_alignParentRight="true"
+                android:text="打开左侧滑动菜单"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/go_to_md"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/go_to_news"
+                android:background="@drawable/mainbutton"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="20dp"
+                android:text="菜单练习界面"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/go_to_video"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/go_to_md"
+                android:layout_alignParentRight="true"
+                android:text="video"
+                android:background="@drawable/mainbutton"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/go_to_camera"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/go_to_md"
+                android:layout_alignParentLeft="true"
+                android:text="camera"
+                android:background="@drawable/mainbutton"
+                android:textAllCaps="false" />
+        </RelativeLayout>
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
