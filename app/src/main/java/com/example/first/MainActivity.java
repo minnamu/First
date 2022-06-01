@@ -1,5 +1,6 @@
 package com.example.first;
 
+import java.io.File;
 import java.lang.reflect.Method;
 
 import android.app.NotificationChannel;
@@ -58,6 +59,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Log.d("return to the activity1", returnData);
                 }
                 break;
+            //看是否是选择了更换头像
+            case 2:
+                if (resultCode == RESULT_OK) {
+
+                }
+                break;
+
             default:
                 Toast.makeText(MainActivity.this, "code不是1", Toast.LENGTH_SHORT).show();
 
@@ -290,7 +298,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
-
         Button btnWeather = (Button) findViewById(R.id.go_to_weather);
 
         btnWeather.setOnClickListener(new OnClickListener() {
@@ -304,23 +311,72 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /**
          * 滑动菜单的点击
          */
-        /*NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
         navView.setNavigationItemSelectedListener(new OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.ic1:
-                        Toast.makeText(MainActivity.this, "点击了信息", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "点击了更改头像", Toast.LENGTH_SHORT).show();
+                        //打开相册
+                        //应该先检查是否有权限，再申请，如果有直接打开相册
+                        openAlbum();
+
+
+                        // mdl.closeDrawers();//关闭滑动菜单
+                        break;
+                    case R.id.ic2:
+                        Toast.makeText(MainActivity.this, "点击了call", Toast.LENGTH_SHORT).show();
                         mdl.closeDrawers();//关闭滑动菜单
+                        Intent it = new Intent(Intent.ACTION_DIAL);
+                        it.setData(Uri.parse("tel:10086"));
+                        startActivity(it);
+                        break;
+                    case R.id.ic3:
+                        Toast.makeText(MainActivity.this, "点击了关于", Toast.LENGTH_SHORT).show();
+                        mdl.closeDrawers();//关闭滑动菜单
+                        break;
+
                     default:
                         break;
 
                 }
-                return true;
-            });
 
-        }*/
+                return false;
+            }
+        });
+
+
     }//oncreate
+
+    /**
+     * 调用系统的裁剪功能
+     *
+     * @param uri
+     */
+    public void cropPhoto(Uri uri) {
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(uri, "image/*");
+        intent.putExtra("crop", "true");
+        // aspectX aspectY 是宽高的比例
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        // outputX outputY 是裁剪图片宽高
+        intent.putExtra("outputX", 150);
+        intent.putExtra("outputY", 150);
+        intent.putExtra("return-data", true);
+        startActivityForResult(intent, 3);
+    }
+
+    @Override
+
+    //打开相册，选择图片
+    private void openAlbum() {
+        Intent intent2 = new Intent(Intent.ACTION_PICK);
+        intent2.setType("image/*");
+        startActivityForResult(intent2, 2);
+    }
+
 
     //参考：https://developer.android.com/training/notify-user/build-notification
     @Override

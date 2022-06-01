@@ -4,7 +4,7 @@
         <item
             android:id="@+id/ic1"
             android:icon="@drawable/teddybear"
-            android:title="信息" />
+            android:title="更改头像" />
         <item
             android:id="@+id/ic2"
             android:icon="@drawable/pinwheel"

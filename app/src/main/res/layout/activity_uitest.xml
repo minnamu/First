@@ -14,9 +14,9 @@
             android:id="@+id/toolbar2"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="#e68a97"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -1,7 +1,9 @@
 package com.example.first;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 
@@ -10,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import org.json.JSONObject;
@@ -21,10 +24,12 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class ActivityWeather extends AppCompatActivity {
+    private TextView textViewTime;
     private TextView textView1;
     private TextView textView2;
     private TextView textView3;
     private TextView textView4;
+
     private EditText editText;
     private String city;
     private Button button;
@@ -43,6 +48,7 @@ public class ActivityWeather extends AppCompatActivity {
 
 
         //获取文本框，并连接网络数据
+        textViewTime = (TextView) findViewById(R.id.weather_time);
         textView1 = (TextView) findViewById(R.id.weather_weather);
         textView2 = (TextView) findViewById(R.id.weather_temp);
         textView3 = (TextView) findViewById(R.id.weather_wind);
@@ -82,19 +88,54 @@ public class ActivityWeather extends AppCompatActivity {
                     final String resultcode = jsonObject.getString("resultcode");
                     if (!resultcode.equals("200")) {
                         //输入不正确
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                AlertDialog.Builder dialog = new AlertDialog.Builder(ActivityWeather.this);
+                                dialog.setTitle("城市名称错误");
+                                dialog.setMessage("是否重新输入？");
+                                //不能back
+                                dialog.setCancelable(false);
+                                //确认的点击事件
+                                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                });
+
+                                dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                });
+                                dialog.show();
+
+                            }
+                        });
                     }
 
                     final String result = jsonObject.getString("result");
                     JSONObject jsonObject1 = new JSONObject(result);
-                    //today
-                    String today = jsonObject1.getString("today");
-                    String sk = jsonObject1.getString("sk");
 
+                    String sk = jsonObject1.getString("sk");
+                    String today = jsonObject1.getString("today");
+
+                    //today
                     JSONObject jsonObject2 = new JSONObject(today);
                     final String temp1 = jsonObject2.getString("temperature");
                     final String weather1 = jsonObject2.getString("weather");
+                    //日期
+                    String dateY = jsonObject2.getString("date_y");
+                    String theCity = jsonObject2.getString("city");
+
                     JSONObject sk1 = new JSONObject(sk);
                     final String wind = sk1.getString("wind_direction");
+                    final String wind2 = sk1.getString("wind_strength");
+                    final String current = sk1.getString("time");
+
                     /**
                      * 天气预报
                      */
@@ -104,6 +145,13 @@ public class ActivityWeather extends AppCompatActivity {
 
                     Log.d(MyHttpRequest.class.toString(), temp1 + "," + weather1);
                     //把内容显示到界面
+                    //显示时间
+                    textViewTime.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            textViewTime.setText(dateY + " " + current + " " + theCity);
+                        }
+                    });
                     //显示天气
                     textView1.post(new Runnable() {
                         @Override
@@ -122,7 +170,7 @@ public class ActivityWeather extends AppCompatActivity {
                     textView3.post(new Runnable() {
                         @Override
                         public void run() {
-                            textView3.setText("风向：" + wind);
+                            textView3.setText(wind + "  " + wind2);
                         }
                     });
 

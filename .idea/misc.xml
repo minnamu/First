@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.205" />
         <entry key="app/src/main/res/drawable/mainbutton.xml" value="0.1635" />
         <entry key="app/src/main/res/layout-sw100dp/activity_news_content.xml" value="0.25" />
+        <entry key="app/src/main/res/layout-sw111dp/activity_fragment_test.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/layout-sw111dp/activity_news_main.xml" value="0.137890625" />
         <entry key="app/src/main/res/layout-sw600dp/activity_fragment_test.xml" value="0.1" />
         <entry key="app/src/main/res/layout-sw600dp/activity_news_content.xml" value="0.1" />
@@ -28,7 +29,7 @@
         <entry key="app/src/main/res/layout/another_right_fragment.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/first-.xml" value="0.1" />
         <entry key="app/src/main/res/layout/first_.xml" value="0.16843971631205673" />
-        <entry key="app/src/main/res/layout/first_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/first_layout.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_city.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/header.xml" value="0.25" />
         <entry key="app/src/main/res/layout/left_fragment.xml" value="0.2140625" />
@@ -44,6 +45,7 @@
         <entry key="app/src/main/res/menu/left_menu.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/menu/main.xml" value="0.1" />
         <entry key="app/src/main/res/menu/toolbar.xml" value="0.18854166666666666" />
+        <entry key="app/src/main/res/xml/file_path.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/xml/file_paths.xml" value="0.165625" />
       </map>
     </option>

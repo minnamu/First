@@ -22,41 +22,54 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="#ffe4e1"
+                android:background="#e68a97"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
         </FrameLayout>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="hello" />
-
-        <Button
-            android:background="@drawable/mainbutton"
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-
-            android:text="更改上方文字" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="170dp"
+                android:layout_height="136dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+
+                android:text="hello"
+                android:textSize="20dp" />
+
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button1"
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+
+                android:background="@drawable/mainbutton"
+
+                android:text="更改文字" />
+
+
+            <Button
+
+                android:id="@+id/button2"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+
+
+                android:layout_below="@id/button1"
 
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/mainbutton"
+
                 android:text="go to activity2"
                 android:textAllCaps="false"
 
@@ -64,12 +77,14 @@
 
             <Button
                 android:id="@+id/button4"
-                android:background="@drawable/mainbutton"
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
+
+                android:layout_below="@id/textView"
                 android:layout_alignParentRight="true"
+
                 android:layout_marginBottom="20dp"
+                android:background="@drawable/mainbutton"
                 android:text="外部浏览器打开baidu"
                 android:textAllCaps="false"
 
@@ -93,11 +108,11 @@
             <Button
                 android:id="@+id/button_to_activity4"
                 android:layout_width="170dp"
-                android:background="@drawable/mainbutton"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/button4"
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="20dp"
+                android:background="@drawable/mainbutton"
                 android:text="go to UIactivity"
                 android:textAllCaps="false"
 
@@ -107,9 +122,9 @@
                 android:id="@+id/go_to_fregment"
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/mainbutton"
                 android:layout_below="@id/button_to_activity3"
                 android:layout_marginBottom="20dp"
+                android:background="@drawable/mainbutton"
                 android:text="go to fragmentTest"
                 android:textAllCaps="false" />
 
@@ -123,11 +138,12 @@
                 android:background="@drawable/mainbutton"
                 android:text="新闻"
                 android:textAllCaps="false" />
+
             <Button
                 android:id="@+id/go_to_weather"
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/go_to_fregment"
+                android:layout_below="@id/go_to_news"
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/mainbutton"
@@ -137,11 +153,11 @@
             <Button
                 android:id="@+id/go_to_noti"
                 android:layout_width="170dp"
-                android:background="@drawable/mainbutton"
-
                 android:layout_height="wrap_content"
+
                 android:layout_below="@id/button_to_activity4"
                 android:layout_alignParentRight="true"
+                android:background="@drawable/mainbutton"
                 android:text="创建通知"
                 android:textAllCaps="false" />
 
@@ -150,9 +166,9 @@
                 android:id="@+id/openleftmenu"
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/go_to_news"
-                android:background="@drawable/mainbutton"
+                android:layout_below="@id/go_to_weather"
                 android:layout_alignParentRight="true"
+                android:background="@drawable/mainbutton"
                 android:text="打开左侧滑动菜单"
                 android:textAllCaps="false" />
 
@@ -161,21 +177,22 @@
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/go_to_news"
-                android:background="@drawable/mainbutton"
                 android:layout_alignParentLeft="true"
                 android:layout_marginBottom="20dp"
+                android:background="@drawable/mainbutton"
                 android:text="菜单练习界面"
                 android:textAllCaps="false" />
-
+            <!--没显示-->
             <Button
                 android:id="@+id/go_to_video"
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/go_to_md"
                 android:layout_alignParentRight="true"
-                android:text="video"
                 android:background="@drawable/mainbutton"
-                android:textAllCaps="false" />
+                android:text="video(没写)"
+                android:textAllCaps="false"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/go_to_camera"
@@ -183,8 +200,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/go_to_md"
                 android:layout_alignParentLeft="true"
-                android:text="camera"
                 android:background="@drawable/mainbutton"
+                android:text="camera"
                 android:textAllCaps="false" />
         </RelativeLayout>
     </LinearLayout>

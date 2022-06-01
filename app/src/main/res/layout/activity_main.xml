@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity2">
 
+
     <TextView
         android:id="@+id/get_data_from1"
         android:layout_width="match_parent"
@@ -14,10 +15,13 @@
         android:gravity="center"
 
         android:text="hello activity2"
-        android:textColor="#F44336"
+        android:textColor="#8ea3e2"
 
-        android:textSize="24sp" />
-
+        android:textSize="20sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50px"
+        android:background="#fff" />
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
@@ -25,7 +29,10 @@
         android:background="@drawable/mainbutton"
 
         android:text="返回activity1" />
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50px"
+        android:background="#fff" />
     <Button
         android:id="@+id/button_progress"
         android:layout_width="match_parent"
@@ -33,6 +40,10 @@
         android:background="@drawable/mainbutton"
 
         android:text="显示/隐藏进度条" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50px"
+        android:background="#fff" />
 
     <Button
         android:id="@+id/add_progress"
@@ -41,6 +52,10 @@
         android:background="@drawable/mainbutton"
 
         android:text="增加进度条" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50px"
+        android:background="#fff" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
