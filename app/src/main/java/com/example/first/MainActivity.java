@@ -3,22 +3,34 @@ package com.example.first;
 import java.io.File;
 import java.lang.reflect.Method;
 
+import android.Manifest;
+import android.Manifest.permission;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapFactory.Options;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.provider.DocumentsContract;
+import android.provider.MediaStore;
+import android.provider.MediaStore.Images.Media;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,9 +42,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import com.example.first.testListView.ActivityListView;
 
@@ -62,6 +77,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //看是否是选择了更换头像
             case 2:
                 if (resultCode == RESULT_OK) {
+                    String imagePath = null;
+                    Uri uri = data.getData();
+                    if (DocumentsContract.isDocumentUri(MainActivity.this, uri)) {
+                        //如果是document类型的uri
+                        //通过document id处理
+                        String docId = DocumentsContract.getDocumentId(uri);
+                        //如果uri的authority是media格式
+                        //document id还需要一次解析，需要分割字符串取得后半部分的数字id
+                        //取出的id用于构建新的uri和条件语句
+                        //再把这些值传入getImagePath获取图片的真实路径
+                        if (uri.getAuthority().equals("com.android.providers.media.documents")) {
+                            String id = docId.split(":")[1];
+                            //MediaStore.Images.Media._ID
+                            String selection = Media._ID + "=" + id;
+                            imagePath = getImagePath(Media.EXTERNAL_CONTENT_URI, selection);
+                        } else if (uri.getAuthority().equals("com.android.providers.download.documents")) {
+                            Uri contentUri = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"), Long.valueOf(docId));
+                            imagePath = getImagePath(contentUri, null);
+                        }
+
+                    } else if (uri.getScheme().equals("content")) {
+                        //如果是content类型的uri
+                        Log.d("", "onActivityResult: content类型");
+                        imagePath = getImagePath(uri, null);
+                        Log.d(imagePath, "onActivityResult: imagePath");
+                    } else if (uri.getScheme().equals("file")) {
+                        Log.d("", "onActivityResult: file类型");
+                        //如果是file类型的uri
+                        imagePath = uri.getPath();
+
+                    }
+                    //显示图片
+                    displayImage(imagePath);
 
                 }
                 break;
@@ -70,6 +118,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "code不是1", Toast.LENGTH_SHORT).show();
 
         }
+    }
+
+
+    private void displayImage(String imagePath) {
+        if (imagePath != null) {
+            Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
+
+            CircleImageView picture = findViewById(R.id.circle_pic);
+            ImageView nowPic = findViewById(R.id.now_pic);
+            nowPic.setImageBitmap(bitmap);
+//图片太大，不显示？不是这个原因
+//            Matrix matrix = new Matrix();
+//            matrix.setScale(0.7f, 0.7f);
+//            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, false);
+            //
+//            不显示：参考https://blog.csdn.net/m0_50127633/article/details/119008316
+            picture.setImageBitmap(bitmap);
+            Toast.makeText(MainActivity.this, "成功更改头像", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(MainActivity.this, "没找到头像图片", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private String getImagePath(Uri uri, String selection) {
+        String path = null;
+        //通过uri和selection来获取图片的真实路径
+        /**
+         * 每个应用程序是可以实现数据共享的，对于每一个应用程序程序都拥有一个contentprovider实例进行存储，而contentresolver则是用于管理所有程序的contentprovider实例，通过contentrescolver可以获得数据，插入数据等……至于getcontentrescolver()就是获取实例
+         */
+        Cursor cursor = getContentResolver().query(uri, null, selection, null, null);
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                path = cursor.getString(cursor.getColumnIndex(Media.DATA));
+            }
+            cursor.close();
+        }
+        return path;
     }
 
     @Override
@@ -368,13 +453,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivityForResult(intent, 3);
     }
 
-    @Override
 
     //打开相册，选择图片
     private void openAlbum() {
+        //先检查是否有权限
+        //运行时权限，危险权限 WRITE_EXTERNAL_STORAGE
+        if (ContextCompat.checkSelfPermission(MainActivity.this, permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }
         Intent intent2 = new Intent(Intent.ACTION_PICK);
         intent2.setType("image/*");
         startActivityForResult(intent2, 2);
+
+
     }
 
 

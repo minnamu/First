@@ -50,8 +50,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
 
                 android:background="@drawable/mainbutton"
 
@@ -203,6 +203,18 @@
                 android:background="@drawable/mainbutton"
                 android:text="camera"
                 android:textAllCaps="false" />
+
+            <ImageView
+                android:id="@+id/now_pic"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_below="@id/go_to_camera"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="112dp"
+                android:layout_marginTop="9dp"
+                android:src="@drawable/pic"
+                android:visibility="invisible" />
+
         </RelativeLayout>
     </LinearLayout>
 
